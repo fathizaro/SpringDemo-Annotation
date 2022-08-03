@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context = "http://www.springframework.org/schema/context"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:component-scan base-package=" org.genspark.Student"/>
+
+    <bean id="student" class="org.genspark.Student">
+        <property name="name" value="Adam Bayyari"/>
+        <property name="id" value="207099"/>
+        <property name="ph">
+            <list>
+                <ref bean="phone0" />
+                <ref bean="phone1" />
+                <ref bean="phone2" />
+            </list>
+        </property>
+        <property name="add" ref="address" />
+    </bean>
+
+    <bean id="phone0" class="org.genspark.Phone">
+        <property name="mob" value="989-774-0262"/>
+    </bean>
+
+    <bean id="phone1" class="org.genspark.Phone">
+        <property name="mob" value="789-204-7142"/>
+    </bean>
+
+    <bean id="phone2" class="org.genspark.Phone">
+        <property name="mob" value="619-254-7562"/>
+    </bean>
+
+
+    <bean id="address" class="org.genspark.Address">
+        <property name="city" value="Apex" />
+        <property name="state" value="NC" />
+        <property name="country" value="US" />
+        <property name="zipcode" value="20539" />
+    </bean>
+</beans>
